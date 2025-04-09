@@ -2,32 +2,61 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 
-
-
 function App(){
-  
-  return(
-   <div style={{display:"flex"}}>
-    <Card>
-      hi there
-      </Card>
-      <Card>
-      hello my name is Priyansh Nandwana
-      </Card>
 
-   </div>
+  const todos = [{
+    task:"go to gym",
+    done:"no",
+    key:1
+  },{
+    task:"go to swim",
+    done:"yes",
+    key:2
+  }]
+
+const todoComponents = todos.map((todo)=><ToDo task={todo.task} done={todo.done} key={todo.key}/>)
+
+  return(
+    <div>
+      {todoComponents}
+    </div>
   )
 }
 
-function Card({children}){
+function ToDo({task,done}){
   return(
-    <div style={{display:"flex", alignItems:"center",borderRadius:"10px",justifyContent:"center",backgroundColor:"black",color:"white",}}>
-      {children}
+    <div>
+      {task} - {done=="yes"?"Good":"Please Complete Fast"}
     </div>
   )
 }
 
 
+//----------------- CHILDREN  ------------------//
+// function App(){
+  
+//   return(
+//    <div style={{display:"flex"}}>
+//     <Card>
+//       hi there
+//       </Card>
+//       <Card>
+//       hello my name is Priyansh Nandwana
+//       </Card>
+
+//    </div>
+//   )
+// }
+
+// function Card({children}){
+//   return(
+//     <div style={{display:"flex", alignItems:"center",borderRadius:"10px",justifyContent:"center",backgroundColor:"black",color:"white",}}>
+//       {children}
+//     </div>
+//   )
+// }
+
+//----------------- Backend Cll Useffect  ------------------//
 // function App(){
 //   const [tab,setTab] = useState(1);
 //   const [tabData,setTabData] = useState({})
@@ -74,6 +103,7 @@ function Card({children}){
 // }
 
 
+//----------------- Render Post  ------------------//
 // function App(){
 //   const [post,setPost] = useState([]);
 //   const postComponent = post.map(post=><Post name={post.name} age={post.age} gender={post.gender}/>)
@@ -92,6 +122,7 @@ function Card({children}){
 //   )
 // }
 
+//----------------- PROPS  ------------------//
 // function Post({name,age,gender}){
 //   return (
 //     <>
@@ -117,6 +148,8 @@ function Card({children}){
 //   // )
 // }
 
+//----------------- CONDITIONAL RENDERING ------------------//
+
 // const ToggleMessage = () => {
 //   const [visible,setVisible] =  useState(true);
 //   console.log("rerender outside")
@@ -134,6 +167,8 @@ function Card({children}){
 //     </>
 //   )
 // }
+
+//----------------- PROPS ------------------//
 // function Greeting({name,age}){
 //  return (
 //   <>
