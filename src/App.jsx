@@ -3,30 +3,55 @@ import { useEffect, useState } from 'react'
 import './App.css'
 
 
-function App(){
-  const [tab,setTab] = useState(1);
-  const [tabData,setTabData] = useState({})
-  const [loading,setLoading] = useState(true)
 
-  useEffect(()=>{
-    setLoading(true)
-    console.log("current tab is "+tab)
-    fetch('https://dummyjson.com/todos/'+tab).then(async res =>{
-      const json = await res.json();
-      setTabData(json)
-      setLoading(false)
-    })
-  },[tab])
+function App(){
   
-  return (
-    <div>
-      <button onClick={()=>setTab(1)} style={{color:tab==1?"red":"black"}}>todo1</button>
-      <button onClick={()=>setTab(2)} style={{color:tab==2?"red":"black"}}>todo2</button>
-      <button onClick={()=>setTab(3)} style={{color:tab==3?"red":"black"}}>todo3</button>
-      {loading==true?"Loading...":tabData.todo}
+  return(
+   <div style={{display:"flex"}}>
+    <Card>
+      hi there
+      </Card>
+      <Card>
+      hello my name is Priyansh Nandwana
+      </Card>
+
+   </div>
+  )
+}
+
+function Card({children}){
+  return(
+    <div style={{display:"flex", alignItems:"center",borderRadius:"10px",justifyContent:"center",backgroundColor:"black",color:"white",}}>
+      {children}
     </div>
   )
 }
+
+
+// function App(){
+//   const [tab,setTab] = useState(1);
+//   const [tabData,setTabData] = useState({})
+//   const [loading,setLoading] = useState(true)
+
+//   useEffect(()=>{
+//     setLoading(true)
+//     console.log("current tab is "+tab)
+//     fetch('https://dummyjson.com/todos/'+tab).then(async res =>{
+//       const json = await res.json();
+//       setTabData(json)
+//       setLoading(false)
+//     })
+//   },[tab])
+  
+//   return (
+//     <div>
+//       <button onClick={()=>setTab(1)} style={{color:tab==1?"red":"black"}}>todo1</button>
+//       <button onClick={()=>setTab(2)} style={{color:tab==2?"red":"black"}}>todo2</button>
+//       <button onClick={()=>setTab(3)} style={{color:tab==3?"red":"black"}}>todo3</button>
+//       {loading==true?"Loading...":tabData.todo}
+//     </div>
+//   )
+// }
 
 
 // function App(){
